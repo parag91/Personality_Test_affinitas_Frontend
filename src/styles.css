@@ -1,1 +1,106 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+
+.loginbuttonstyle{
+ text-align:center
+    
+}
+
+.image-set{
+  margin: 0 auto;
+
+}
+
+.box-sticker{
+  border: 1px solid black;
+  box-shadow: 0 0 30px black;
+}
+
+
+.headingstyle{
+ font-family:cursive;    
+}
+
+.h1-font{
+  font-size: 55px;
+  color: red;
+}
+
+body{
+ 
+   
+}
+
+input[type=text], select {
+       text-align:center;
+
+}
+.mat-tab-body-content{
+  overflow: hidden !important ;
+}
+
+.mat-tab-body.mat-tab-body-active{
+  overflow-y:hidden !important ; 
+}
+
+.actionButtons{
+  margin-right: auto !important ;
+  margin-left: auto !important  ;
+  text-align: center;
+}
+
+
+.testT{
+  font-weight: bold;
+}
+
+
+
+.background-image {
+  
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+
+  display: block;
+  background-image: url('assets/affinitasImage.jpg') ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 600px;
+ 
+  /*-webkit-filter: blur(5px);*/
+  /*-moz-filter: blur(5px);*/
+  /*-o-filter: blur(5px);*/
+  /*-ms-filter: blur(5px);*/
+  /*filter: blur(5px);*/
+}
+
+/*.fill { 
+    min-height: 100%;
+    height: 100%;
+}*/
+
+h2 span { 
+   color: white; 
+   font: bold 24px/45px Helvetica, Sans-Serif; 
+   /*letter-spacing: -1px;  
+   background: rgb(0, 0, 0); /* fallback color */
+   /*background: rgba(0, 0, 0, 0.7);*/
+   /*padding: 10px; */
+}

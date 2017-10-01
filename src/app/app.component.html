@@ -1,20 +1,221 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
+
+<div >
+
+<form #testForm="ngForm" (ngSubmit)="registerUser(testForm)"> 
+<div class="container-fluid"> 
+<md-tab-group>
+
+
+
+  <!-- first tab !-->
+
+<div>
+  <md-tab class="testT" label="hard_fact">
+   
+
+
+
+<div >
+  <ng-container *ngFor="let navItem of questions ; let i = index">
+  <div  *ngIf=" navItem.category == 'hard_fact' " > 
+ 
+  <div class="well well-sm">{{navItem.question}}</div>
+
+   <div>
+
+   <div *ngIf=" navItem.question_type.type == 'single_choice' "> 
+   <md-radio-group class="example-radio-group">
+   <md-radio-button class="example-radio-button" *ngFor="let option of navItem.question_type.options " (change)="onChange(option , navItem.question_No , 'tab1' )"  [value]="option">
+    
+   
+    {{option}}
+   
+   </md-radio-button>
+   </md-radio-group>
+
+   </div>  
+
+
+   <div *ngIf=" navItem.question_type.type == 'single_choice_conditional' ">
+   <md-radio-group class="example-radio-group" >
+    <md-radio-button class="example-radio-button" *ngFor="let option of navItem.question_type.options " [value]="option" (change)="handleChange(option)">
+    
+   
+    {{option}}
+   
+   </md-radio-button>
+   </md-radio-group>
+
+   <div *ngIf="this.navigator" style="border:1px solid black">
+   <span style="color:black">Please select the desired age for your partner</span>  
+   <input type="range" id="myRange" value="140">
+   </div>  
+   </div>  
+
+
+   </div>
+
+  </div>  
+  </ng-container>  
+
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+
+ 
+  </md-tab>
+</div>
+
+
+<!-- second tab !-->
+
+<div>
+  <md-tab label="lifestyle">
+<div >
+  <ng-container *ngFor="let navItemTab1 of questions ; let i = index">
+  <div  *ngIf=" navItemTab1.category == 'lifestyle' " > 
+ 
+  <div class="well well-sm">{{navItemTab1.question}}</div>
+
+<div>
+
+<div *ngIf=" navItemTab1.question_type.type == 'single_choice' "> 
+   <md-radio-group class="example-radio-group">
+   <md-radio-button class="example-radio-button" *ngFor="let option of navItemTab1.question_type.options " (change)="onChange(option , navItemTab1.question_No , 'tab2')" [value]="option">
+    
+   
+    {{option}}
+   
+   </md-radio-button>
+   </md-radio-group>
+
+</div> 
+
+
+</div>
+
+  </div>  
+  </ng-container>  
+
+</div>
+</md-tab>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- thired tab !-->
+
+
+<div>
+
+
+ <md-tab label="introversion">
+<div >
+  <ng-container *ngFor="let navItemTab2 of questions ; let i = index">
+  <div  *ngIf=" navItemTab2.category == 'introversion' " > 
+ 
+  <div class="well well-sm">{{navItemTab2.question}}</div>
+
+<div>
+
+
+<div *ngIf=" navItemTab2.question_type.type == 'single_choice' ">
+
+  <md-radio-group class="example-radio-group">
+   <md-radio-button class="example-radio-button" *ngFor="let option of navItemTab2.question_type.options " (change)="onChange(option , navItemTab2.question_No , 'tab3' )" [value]="option">
+    
+   
+    {{option}}
+   
+   </md-radio-button>
+   </md-radio-group>
+
+
+</div>
+
+
+
+ 
+</div>
+
+  </div>  
+  </ng-container>  
+
+</div>
+</md-tab>
+
+
+</div>
+
+
+
+<!-- Fouth tab !-->
+
+
+
+<div>
+
+ <md-tab label="passion">
+<div >
+  <ng-container *ngFor="let navItemTab3 of questions ; let i = index">
+  <div  *ngIf=" navItemTab3.category == 'passion' " > 
+ 
+  <div class="well well-sm">{{navItemTab3.question}}</div>
+
+<div>
+
+
+<div *ngIf=" navItemTab3.question_type.type == 'single_choice' ">  
+
+   <md-radio-group class="example-radio-group">
+   <md-radio-button class="example-radio-button" *ngFor="let option of navItemTab3.question_type.options " (change)="onChange(option , navItemTab3.question_No , 'tab4')" [value]="option">
+    
+   
+    {{option}}
+   
+   </md-radio-button>
+   </md-radio-group>
+
+
+</div>  
+
+
+</div>
+
+  </div>  
+  </ng-container>  
+
+</div>
+</md-tab>
+</div>
+
+
+
+</md-tab-group>
+
+
+</div>
+</form>
+</div>
+
+<br>
+<div>
+<h4 style="color:red" [innerHtml]="htmlToAddOnSubmit"></h4>
+</div>
+<div>
+<div class="actionButtons">
+<button (click)="goBack()" class="btn btn-primary">Back</button>
+<button type="submit" (click)="goSubmit()" class="btn btn-primary">Submit</button>
+</div>
+</div>  
 

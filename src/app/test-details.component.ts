@@ -83,7 +83,7 @@ goSubmit(testForm){
      () => console.log("finsihed")
    );
 //console.log(  localStorage.getItem("dataVal"));
- //  this.router.navigate(['/testSubmit'] , { skipLocationChange: true });
+   this.router.navigate(['/testSubmit'] , { skipLocationChange: true });
  }
   }
 
